@@ -35,7 +35,7 @@ router.route('/get')
                 console.log("Content-Type: " + req.get('Content-Type'));
                 res = res.type(req.get('Content-Type'));
             }
-            res.send(req.body);
+            res.send("Database is empty");
         }
     );
 
