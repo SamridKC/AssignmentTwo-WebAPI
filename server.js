@@ -16,38 +16,92 @@ app.use(passport.initialize());
 var router = express.Router();
 
 router.route('/post')
-    .post(authController.isAuthenticated, function (req, res) {
+    .post(function (req, res) {
+        var header = req.headers;
+        var body = req.body;
+
+        if (Object.keys(req.headers).length === 0) {
+            header = "No header sent";
+        }
+        if (Object.keys(req.body).length === 0) {
+            body = "No Body sent";
+        }
             console.log(req.body);
             res = res.status(200);
             if (req.get('Content-Type')) {
                 console.log("Content-Type: " + req.get('Content-Type'));
                 res = res.type(req.get('Content-Type'));
             }
-            res.send(req.body);
+//            res.send(req.body);
+            res.json({Headers: header, Body: body, KEY: process.env.UNIQUE_KEY});
         }
     );
 
 router.route('/get')
-    .get(authController.isAuthenticated, function (req, res) {
+    .get(function (req, res) {
+            var header = req.headers;
+            var body = req.body;
+
+            if (Object.keys(req.headers).length === 0) {
+                header = "No header sent";
+            }
+            if (Object.keys(req.body).length === 0) {
+                body = "No Body sent";
+            }
             console.log(req.body);
             res = res.status(200);
             if (req.get('Content-Type')) {
                 console.log("Content-Type: " + req.get('Content-Type'));
                 res = res.type(req.get('Content-Type'));
             }
-            res.send("Database is empty");
+//            res.send(req.body);
+            res.json({Headers: header, Body: body, KEY: process.env.UNIQUE_KEY});
         }
     );
 
 router.route('/put')
-    .put(authController.isAuthenticated, function (req, res) {
+    .put(function (req, res) {
+
+            var header = req.headers;
+            var body = req.body;
+
+            if (Object.keys(req.headers).length === 0) {
+                header = "No header sent";
+            }
+            if (Object.keys(req.body).length === 0) {
+                body = "No Body sent";
+            }
             console.log(req.body);
             res = res.status(200);
             if (req.get('Content-Type')) {
                 console.log("Content-Type: " + req.get('Content-Type'));
                 res = res.type(req.get('Content-Type'));
             }
-            res.send(req.body);
+//            res.send(req.body);
+            res.json({Headers: header, Body: body, KEY: process.env.UNIQUE_KEY});
+        }
+    );
+
+router.route('/delete')
+    .delete(authController.isAuthenticated, function (req, res) {
+
+            var header = req.headers;
+            var body = req.body;
+
+            if (Object.keys(req.headers).length === 0) {
+                header = "No header sent";
+            }
+            if (Object.keys(req.body).length === 0) {
+                body = "No Body sent";
+            }
+            console.log(req.body);
+            res = res.status(200);
+            if (req.get('Content-Type')) {
+                console.log("Content-Type: " + req.get('Content-Type'));
+                res = res.type(req.get('Content-Type'));
+            }
+//            res.send(req.body);
+            res.json({Headers: header, Body: body, KEY: process.env.UNIQUE_KEY});
         }
     );
 
