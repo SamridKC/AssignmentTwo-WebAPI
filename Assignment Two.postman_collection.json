@@ -1,0 +1,568 @@
+{
+	"info": {
+		"name": "Assignment Two",
+		"_postman_id": "599f46d5-fb96-8834-c5a6-c55953ff9fdf",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "548f3bb1-fdb3-4b54-afcf-dcc2e6addcd7",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Echo check\"] = jsonData.Body.test === \"echo\";",
+							"tests[\"Id check\"] = jsonData.Body.Id === 1234;"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "cu",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "testuser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Id\":1234,\n\t\"test\":\"echo\"\n}"
+				},
+				"url": {
+					"raw": "https://hw2-web-api-samrid.herokuapp.com/post",
+					"protocol": "https",
+					"host": [
+						"hw2-web-api-samrid",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "894bb7b3-e290-4646-b34b-81d0aa973f5a",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"tests[\"Body matches string\"] = responseBody.has(\"No Body sent\");",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://hw2-web-api-samrid.herokuapp.com/get",
+					"protocol": "https",
+					"host": [
+						"hw2-web-api-samrid",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"get"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Put",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "53079816-40f8-4728-a527-f9578086f0d2",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Echo check\"] = jsonData.Body.test === \"echo\";",
+							"tests[\"Id check\"] = jsonData.Body.Id === 1234;"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "cu",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "testuser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Id\":1234,\n\t\"test\":\"echo\"\n}"
+				},
+				"url": {
+					"raw": "https://hw2-web-api-samrid.herokuapp.com/put",
+					"protocol": "https",
+					"host": [
+						"hw2-web-api-samrid",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"put"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete with right password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a1ca2068-d011-41a0-a98d-bb0024ed0d7f",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Echo check\"] = jsonData.Body.test === \"echo\";",
+							"tests[\"Id check\"] = jsonData.Body.Id === 1234;"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "cu",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "testuser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Id\":1234,\n\t\"test\":\"echo\"\n}"
+				},
+				"url": {
+					"raw": "https://hw2-web-api-samrid.herokuapp.com/delete",
+					"protocol": "https",
+					"host": [
+						"hw2-web-api-samrid",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"delete"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete with wrong password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9b63d406-3b11-4fdc-bcb4-93cc09799fb5",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Wrong password\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "asfdasf",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "testuser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://hw2-web-api-samrid.herokuapp.com/delete",
+					"protocol": "https",
+					"host": [
+						"hw2-web-api-samrid",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"delete"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Post with Other",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "99c17db3-5ecf-4c8a-ad97-8a09ef752d6e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Not found. Invalid\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://hw2-web-api-samrid.herokuapp.com/post",
+					"protocol": "https",
+					"host": [
+						"hw2-web-api-samrid",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Gets with Other",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "99c17db3-5ecf-4c8a-ad97-8a09ef752d6e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Not found. Invalid\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://hw2-web-api-samrid.herokuapp.com/gets",
+					"protocol": "https",
+					"host": [
+						"hw2-web-api-samrid",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"gets"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Put with Other",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "99c17db3-5ecf-4c8a-ad97-8a09ef752d6e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Not found. Invalid\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://hw2-web-api-samrid.herokuapp.com/put",
+					"protocol": "https",
+					"host": [
+						"hw2-web-api-samrid",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"put"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete with Other",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "99c17db3-5ecf-4c8a-ad97-8a09ef752d6e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Not found. Invalid\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://hw2-web-api-samrid.herokuapp.com/delete",
+					"protocol": "https",
+					"host": [
+						"hw2-web-api-samrid",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"delete"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Sign In Test",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "testuser",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "passsword",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://hw2-web-api-samrid.herokuapp.com/signin",
+					"protocol": "https",
+					"host": [
+						"hw2-web-api-samrid",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"signin"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Post Jwt",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "175441a4-90ec-4c3f-b03f-758ee5e5dc24",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MTkzMjQzMzR9.VTdU4mBVdAPh4VBxUwkMLNLOnn8S_Uqzw0t3QNnbzqY"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"test\":\"echo\"\n}"
+				},
+				"url": {
+					"raw": "https://hw2-web-api-samrid.herokuapp.com/postjwt",
+					"protocol": "https",
+					"host": [
+						"hw2-web-api-samrid",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"postjwt"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Sign Up Test",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "testuser",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://hw2-web-api-samrid.herokuapp.com/signup",
+					"protocol": "https",
+					"host": [
+						"hw2-web-api-samrid",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"signup"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
